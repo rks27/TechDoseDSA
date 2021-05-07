@@ -12,7 +12,8 @@ namespace TechDoseDSA
         {
             // BobbleSortTest();
             // Utils.Print(MergeSortedArray.Merge(BubbleSort.Sort(input1), BubbleSort.Sort(input2)), true);
-            Utils.Print(MergeSort.Sort(input2), true);
+            // Utils.Print(MergeSort.Sort(input2), true);
+            Utils.Print(InsertionSort.Sort(input1), true);
         }
 
         private static void BobbleSortTest()
