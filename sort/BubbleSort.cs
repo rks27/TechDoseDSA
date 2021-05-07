@@ -7,7 +7,7 @@ namespace TechDoseDSA.sort
 {
     public static class BubbleSort
     {
-        public static int[] Sort(int[] input)
+        public static int[] Sort1(int[] input)
         {
             for (int i = 0; i < input.Length; i++)
             {
