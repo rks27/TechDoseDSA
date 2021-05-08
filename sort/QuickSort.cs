@@ -9,46 +9,38 @@ namespace TechDoseDSA.sort
     public static class QuickSort
     {
 
-        static char[] arrPointer;
         public static int[] Sort(int[] input)
         {
-            arrPointer = new char[input.Length];
+            Utils.Print(input);
             DoQuickSort(input, 0, input.Length - 1);
             return input;
         }
 
         private static void DoQuickSort(int[] arr, int from, int to)
         {
-            for (int i = 0; i < arrPointer.Length; i++)
-            {
-                arrPointer[i] = ' ';
-            }
-            
             if (from >= to)
             {
                 return;
             }
             
-            // arrPointer[from] = '^';
-            arrPointer[to] = '^';
+            
             int pivotValue = arr[to];
-            Utils.Print(arr);
-            Utils.Print(arrPointer);
-
-
+            Utils.PrintPivot(arr, to);
+            
             int nextPivotIndex = from;
             for (int i = from; i < to; i++)
             {
+                Utils.PrintCompare(arr, i, to);
                 if ( arr[i] < pivotValue)
                 {
                     Swap(arr, nextPivotIndex, i);
                     nextPivotIndex++;                    
                 }
             }
-            
-            
-            Swap(arr, nextPivotIndex, to);
-            
+
+            Console.WriteLine("*** pivot swap *****");            
+            Swap(arr, nextPivotIndex, to);            
+            Console.WriteLine("********************");
             // 
             DoQuickSort(arr, from, nextPivotIndex - 1);
             DoQuickSort(arr, nextPivotIndex + 1, to);

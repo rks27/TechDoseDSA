@@ -40,33 +40,83 @@ namespace TechDoseDSA
           
             for (int i = 0; i < arr.Length; i++)
             {
-                //if (i == from || i == to)
-                //{
-                //    Console.Write($"|");
-                //}
-                //else if (i > from && i < to)
-                //{
-                //    Console.Write($"___");
-                //}
-                //else
-                //{
-                //    Console.Write($"   ");
-                //}
-
                 var orig = Console.ForegroundColor;
+                var arrow = "";
                 if (from == i || to == i)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("\u2191");
-                    Console.ForegroundColor = orig;
+                    arrow = ("\u2191");
+                 
                 }
-
-                    
-                Console.Write($"[{arr[i]}]");
+    
+                Console.Write($"[{arr[i]}{arrow}]");
+                Console.ForegroundColor = orig;
 
 
             }
             
+            Console.Write(Environment.NewLine);
+            Console.Write(Environment.NewLine);
+
+        }
+
+        public static void PrintPivot(int[] arr, int to)
+        {
+
+            
+            Console.WriteLine($"Pivot index : {to} , value : {arr[to]}");
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                var orig = Console.ForegroundColor;
+                var arrow = "";
+                if (to == i)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    arrow = ("\u2191");
+
+                }
+
+                Console.Write($"[{arr[i]}{arrow}]");
+                Console.ForegroundColor = orig;
+
+
+            }
+
+            Console.Write(Environment.NewLine);
+            Console.Write(Environment.NewLine);
+
+        }
+
+        public static void PrintCompare(int[] arr, int from, int to)
+        {
+            if (from > to)
+            {
+                var tmp = from;
+                from = to;
+                to = tmp;
+            }
+
+
+            Console.WriteLine($"Compare index : {from} : {to}");
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                var orig = Console.ForegroundColor;
+                var arrow = "";
+                if (to == i || from == i)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    arrow = ("\u2191");
+
+                }
+
+                Console.Write($"[{arr[i]}{arrow}]");
+                Console.ForegroundColor = orig;
+
+
+            }
+
             Console.Write(Environment.NewLine);
             Console.Write(Environment.NewLine);
 
