@@ -36,7 +36,7 @@ namespace TechDoseDSA
                 to = tmp;
             }
             
-            Console.WriteLine($"Swap index : {from} , {to}");
+            // Console.WriteLine($"Swap index : {from} , {to}");
           
             for (int i = 0; i < arr.Length; i++)
             {
@@ -45,8 +45,7 @@ namespace TechDoseDSA
                 if (from == i || to == i)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    arrow = ("\u2191");
-                 
+                    arrow = ("\u2194");                    
                 }
     
                 Console.Write($"[{arr[i]}{arrow}]");
@@ -56,16 +55,12 @@ namespace TechDoseDSA
             }
             
             Console.Write(Environment.NewLine);
-            Console.Write(Environment.NewLine);
-
         }
 
         public static void PrintPivot(int[] arr, int to)
         {
 
-            
-            Console.WriteLine($"Pivot index : {to} , value : {arr[to]}");
-
+            // Console.WriteLine($"Pivot index : {to} , value : {arr[to]}");
             for (int i = 0; i < arr.Length; i++)
             {
                 var orig = Console.ForegroundColor;
@@ -79,12 +74,9 @@ namespace TechDoseDSA
 
                 Console.Write($"[{arr[i]}{arrow}]");
                 Console.ForegroundColor = orig;
-
-
             }
-
             Console.Write(Environment.NewLine);
-            Console.Write(Environment.NewLine);
+            
 
         }
 
@@ -98,7 +90,7 @@ namespace TechDoseDSA
             }
 
 
-            Console.WriteLine($"Compare index : {from} : {to}");
+            // Console.WriteLine($"Compare index : {from} : {to}");
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -107,8 +99,7 @@ namespace TechDoseDSA
                 if (to == i || from == i)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
-                    arrow = ("\u2191");
-
+                    arrow = ("=");
                 }
 
                 Console.Write($"[{arr[i]}{arrow}]");
@@ -116,10 +107,8 @@ namespace TechDoseDSA
 
 
             }
-
-            Console.Write(Environment.NewLine);
-            Console.Write(Environment.NewLine);
-
+            
+            Console.Write(Environment.NewLine);           
         }
     }
 }

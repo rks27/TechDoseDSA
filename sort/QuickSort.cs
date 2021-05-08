@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace TechDoseDSA.sort
 {
@@ -38,9 +34,9 @@ namespace TechDoseDSA.sort
                 }
             }
 
-            Console.WriteLine("*** pivot swap *****");            
-            Swap(arr, nextPivotIndex, to);            
-            Console.WriteLine("********************");
+            Console.WriteLine($"--- Pivot Swap ---");
+            Swap(arr, nextPivotIndex, to);
+            
             // 
             DoQuickSort(arr, from, nextPivotIndex - 1);
             DoQuickSort(arr, nextPivotIndex + 1, to);
