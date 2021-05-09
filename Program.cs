@@ -14,7 +14,7 @@ namespace TechDoseDSA
             // Utils.Print(InsertionSort.Sort(input1), true);
             // Utils.Print(QuickSort.Sort(input1));
             // HeapTest(new MinHeap());
-            // HeapTest(new MaxHeap());
+            //  HeapTest(new MaxHeap());
         }
 
         private static void HeapTest(Heap heap)
