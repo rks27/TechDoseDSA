@@ -1,6 +1,4 @@
 ﻿using System;
-using TechDoseDSA.sort;
-
 namespace TechDoseDSA
 {
     class Program
@@ -14,7 +12,20 @@ namespace TechDoseDSA
             // Utils.Print(MergeSortedArray.Merge(BubbleSort.Sort(input1), BubbleSort.Sort(input2)), true);
             // Utils.Print(MergeSort.Sort(input2), true);
             // Utils.Print(InsertionSort.Sort(input1), true);
-            Utils.Print(QuickSort.Sort(input1));
+            // Utils.Print(QuickSort.Sort(input1));
+            // HeapTest(new MinHeap());
+            // HeapTest(new MaxHeap());
+        }
+
+        private static void HeapTest(Heap heap)
+        {
+            heap.Add(new Node() { Value = 10 });
+            heap.Add(new Node() { Value = 15 });
+            heap.Add(new Node() { Value = 12 });
+            heap.Add(new Node() { Value = 25 });
+            heap.Add(new Node() { Value = 25 });
+            heap.Add(new Node() { Value = 25 });
+            heap.Print();
         }
 
         private static void BobbleSortTest()

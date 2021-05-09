@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Runtime.InteropServices;
 
 namespace TechDoseDSA
 {

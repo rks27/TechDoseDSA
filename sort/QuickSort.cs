@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TechDoseDSA.sort
+namespace TechDoseDSA
 {
     public static class QuickSort
     {
