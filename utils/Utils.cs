@@ -4,7 +4,7 @@ namespace TechDoseDSA
 {
     public static class Utils
     {
-        private static ConsoleColor[] HeightColorArray = new ConsoleColor[] { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.DarkBlue, ConsoleColor.DarkGreen };
+        private static ConsoleColor[] HeightColorArray = new ConsoleColor[] { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.DarkBlue, ConsoleColor.DarkGreen, ConsoleColor.Magenta, ConsoleColor.DarkMagenta};
 
         public static void Print(int[] input)
         {
@@ -108,32 +108,46 @@ namespace TechDoseDSA
             Console.Write(Environment.NewLine);           
         }
 
-        public static void PrintTree(Node[] ArrayNodes)
+        public static void PrintTree(Node[] ArrayNodes, bool isBaseOne = false)
         {
-            PrintTree(ArrayNodes, 0, "", 0);
+            PrintTree(ArrayNodes, isBaseOne ? 1 : 0, "", 0);
 
         }
 
-        private static void PrintTree(Node[] ArrayNodes, int index, String indent, int height)
+        public static void PrintTree(int[] array, bool isBaseOne = false)
         {
-            if (index > ArrayNodes.Length || ArrayNodes[index] == null)
+            Node[] arrayNode = new Node[array.Length];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                arrayNode[i] = new Node();
+                arrayNode[i].Value = array[i];
+            }
+
+            PrintTree(arrayNode, isBaseOne ? 1 : 0, "", 0, isBaseOne);
+
+        }
+
+        private static void PrintTree(Node[] ArrayNodes, int index, String indent, int height, bool isBaseOne = false)
+        {
+            if (index >= ArrayNodes.Length || ArrayNodes[index] == null)
             {
                 return;
             }
 
             var currNode = ArrayNodes[index];
             var orig = Console.ForegroundColor;
-            Console.ForegroundColor = HeightColorArray[height];
+            Console.ForegroundColor = HeightColorArray[height % HeightColorArray.Length];
             Console.WriteLine(indent + "+- " + currNode.Value + $"(Height ={height})");
             Console.ForegroundColor = orig;
             indent += index == ArrayNodes.Length ? "   " : "|  ";
             
-            var firstChildIndex = 2 * index + 1;
-            var secondChildIndex = 2 * index + 2;
+            var firstChildIndex = isBaseOne ? 2 * index  : 2 * index + 1;
+            var secondChildIndex = isBaseOne ? 2 * index + 1 : 2 * index + 2;
 
             height++;
-            PrintTree(ArrayNodes, firstChildIndex, indent, height);
-            PrintTree(ArrayNodes, secondChildIndex, indent, height);
+            PrintTree(ArrayNodes, firstChildIndex, indent, height, isBaseOne);
+            PrintTree(ArrayNodes, secondChildIndex, indent, height, isBaseOne);
 
 
         }
