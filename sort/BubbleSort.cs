@@ -20,6 +20,7 @@ namespace TechDoseDSA
                         input[j + 1] = input[j];
                         input[j] = temp;
                         swap = true;
+                        Utils.PrintSwap(input, j, j + 1);
                     }                    
                 }
 

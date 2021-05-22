@@ -8,12 +8,12 @@ namespace TechDoseDSA
 
         static void Main(string[] args)
         {
-            // BobbleSortTest();
+            BobbleSortTest();
             // Utils.Print(MergeSortedArray.Merge(BubbleSort.Sort(input1), BubbleSort.Sort(input2)), true);
             // Utils.Print(MergeSort.Sort(input2), true);
             // Utils.Print(InsertionSort.Sort(input1), true);
             // Utils.Print(QuickSort.Sort(input1));
-            // HeapTest(new MinHeap());
+            HeapTest(new MinHeap());
             //  HeapTest(new MaxHeap());
         }
 

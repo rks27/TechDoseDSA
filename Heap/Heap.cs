@@ -43,7 +43,7 @@ namespace TechDoseDSA
 
         public void Print()
         {
-            PrintTree(0, "");
+            Utils.PrintTree(this.ArrayNodes);
         }
 
         private void PrintTree(int index, String indent)

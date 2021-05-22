@@ -4,6 +4,8 @@ namespace TechDoseDSA
 {
     public static class Utils
     {
+        private static ConsoleColor[] HeightColorArray = new ConsoleColor[] { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.DarkBlue, ConsoleColor.DarkGreen };
+
         public static void Print(int[] input)
         {
             for (int i = 0; i < input.Length; i++)
@@ -34,7 +36,7 @@ namespace TechDoseDSA
                 to = tmp;
             }
             
-            // Console.WriteLine($"Swap index : {from} , {to}");
+            Console.WriteLine($"Swap index : {from} , {to}");
           
             for (int i = 0; i < arr.Length; i++)
             {
@@ -48,8 +50,6 @@ namespace TechDoseDSA
     
                 Console.Write($"[{arr[i]}{arrow}]");
                 Console.ForegroundColor = orig;
-
-
             }
             
             Console.Write(Environment.NewLine);
@@ -73,9 +73,8 @@ namespace TechDoseDSA
                 Console.Write($"[{arr[i]}{arrow}]");
                 Console.ForegroundColor = orig;
             }
-            Console.Write(Environment.NewLine);
             
-
+            Console.Write(Environment.NewLine);
         }
 
         public static void PrintCompare(int[] arr, int from, int to)
@@ -107,6 +106,36 @@ namespace TechDoseDSA
             }
             
             Console.Write(Environment.NewLine);           
+        }
+
+        public static void PrintTree(Node[] ArrayNodes)
+        {
+            PrintTree(ArrayNodes, 0, "", 0);
+
+        }
+
+        private static void PrintTree(Node[] ArrayNodes, int index, String indent, int height)
+        {
+            if (index > ArrayNodes.Length || ArrayNodes[index] == null)
+            {
+                return;
+            }
+
+            var currNode = ArrayNodes[index];
+            var orig = Console.ForegroundColor;
+            Console.ForegroundColor = HeightColorArray[height];
+            Console.WriteLine(indent + "+- " + currNode.Value + $"(Height ={height})");
+            Console.ForegroundColor = orig;
+            indent += index == ArrayNodes.Length ? "   " : "|  ";
+            
+            var firstChildIndex = 2 * index + 1;
+            var secondChildIndex = 2 * index + 2;
+
+            height++;
+            PrintTree(ArrayNodes, firstChildIndex, indent, height);
+            PrintTree(ArrayNodes, secondChildIndex, indent, height);
+
+
         }
     }
 }
