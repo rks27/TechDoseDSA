@@ -61,6 +61,7 @@ Explanation: The first three characters "app" match, and the second string is sh
                     {
                         if (dict[first[k]] < dict[second[k]]) // no neeed to check next char
                         {
+                            checkLenghth = false;
                             break;
                         }
                         else if(dict[first[k]] > dict[second[k]])
