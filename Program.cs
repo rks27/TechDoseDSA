@@ -36,9 +36,12 @@ namespace TechDoseDSA
 
         static void Main(string[] args)
         {
-            BuildSegTree(st_idx, arr, start, end);
-            Utils.Print(st);
-            Utils.PrintTree(st, true);
+            AlienDictionary953 obj = new AlienDictionary953();
+            obj.IsAlienSorted(new string[] { "hello", "leetcode" }, "hlabcdefgijkmnopqrstuvwxyz");
+
+            //BuildSegTree(st_idx, arr, start, end);
+            //Utils.Print(st);
+            //Utils.PrintTree(st, true);
             // BobbleSortTest();
             // Utils.Print(MergeSortedArray.Merge(BubbleSort.Sort(input1), BubbleSort.Sort(input2)), true);
             // Utils.Print(MergeSort.Sort(input2), true);

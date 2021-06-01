@@ -30,11 +30,20 @@ const orgChart = {
   ],
 };
 
+const point = {
+  x: 700,
+  y: 20,
+};
 export default function D3Tree() {
   return (
     // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
-    <div id="treeWrapper" style={{ width: "50em", height: "50em" }}>
-      <Tree data={orgChart} pathFunc="straight" orientation="vertical" />
+    <div id="treeWrapper" style={{ width: "500em", height: "52em" }}>
+      <Tree
+        data={orgChart}
+        pathFunc="straight"
+        orientation="vertical"
+        translate={point}
+      ></Tree>
     </div>
   );
 }
