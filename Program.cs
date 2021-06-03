@@ -36,8 +36,11 @@ namespace TechDoseDSA
 
         static void Main(string[] args)
         {
-            AlienDictionary953 obj = new AlienDictionary953();
-            obj.IsAlienSorted(new string[] { "hello", "leetcode" }, "hlabcdefgijkmnopqrstuvwxyz");
+            LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
+            obj.LargestRectangleArea(new int[] { 2, 1, 2 });
+
+            //AlienDictionary953 obj = new AlienDictionary953();
+            //obj.IsAlienSorted(new string[] { "hello", "leetcode" }, "hlabcdefgijkmnopqrstuvwxyz");
 
             //BuildSegTree(st_idx, arr, start, end);
             //Utils.Print(st);
