@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace TechDoseDSA
 {
-    class Program
+    static class Program
     {
         static int[] input1 = new int[] { 10, 3, 1, 6, 4, 5 };
         static int[] input2 = new int[] { 10, 20, 11 };
@@ -37,9 +40,11 @@ namespace TechDoseDSA
 
         static void Main(string[] args)
         {
-            var x = PickK(input1, 3);
+            
+            var toReturn = PickK(input1, 5);
+           
 
-            Console.WriteLine(x);
+            Console.WriteLine(toReturn.Count);
             
             //LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
             //obj.LargestRectangleArea(new int[] { 2, 1, 2 });
@@ -89,21 +94,48 @@ namespace TechDoseDSA
             Utils.Print(BubbleSort.Sort(input1));
         }
 
-
-        private static List<HashSet<int>> PickK(int[] input, int k)
+     
+        private static List<int[]> PickK(int[] input, int k)
         {
-            var toReturn = new List<HashSet<int>>();
-            for (int i = 0; i < input.Length; i++)
+            var toReturn = new List<int[]>();
+            if (k == 1)
             {
-                var res = PickKRec(input, k, i, new HashSet<int>());
-                foreach (var item in res)
+                for (int l = 0; l < input.Length; l++)
                 {
-                    toReturn.Add(item);
+                    toReturn.Add(new int[] { input[l] });
                 }
+            }
+            else if (input.Length == k)
+            {
+                toReturn.Add(input);             
+            }
+            else
+            {
+                    var item = input[0];
+                    var newInput = input.RemoveAt(0);
+
+                    // exclude 0
+                    var res1 = PickK(newInput, k);
+
+                    // include 0
+                    var res2 = PickK(newInput, k - 1);
+
+                    // need to add included item to result
+                    foreach (var item1 in res2)
+                    {
+                        var toAdd = new int[k];
+                        Array.Copy(item1, toAdd, item1.Length);
+
+                        toAdd[k - 1] = item;
+                        toReturn.Add(toAdd);
+                    }
+
+                    // Appending excluded item 
+                    toReturn = toReturn.Concat(res1).ToList();
+                
             }
 
             return toReturn;
-           
         }
 
         private static List<HashSet<int>> PickKRec(int[] input, int k, int index, HashSet<int> results)
@@ -117,18 +149,34 @@ namespace TechDoseDSA
             }
             
 
-            if(index < input.Length)
+            
+            for (int j = 0; j < input.Length; j++)
             {
                 results.Add(input[index]);
-                var res = PickKRec(input, k, index + 1 , results);
+
+                var res = PickKRec(input, k, index + 1, results);
                 foreach (var item in res)
                 {
                     toReturn.Add(item);
                 }
-                
             }
 
+            
+
+            
             return toReturn;
+        }
+
+        public static T[] RemoveAt<T>(this T[] source, int index)
+        {
+            T[] dest = new T[source.Length - 1];
+            if (index > 0)
+                Array.Copy(source, 0, dest, 0, index);
+
+            if (index < source.Length - 1)
+                Array.Copy(source, index + 1, dest, index, source.Length - index - 1);
+
+            return dest;
         }
     }
 }
