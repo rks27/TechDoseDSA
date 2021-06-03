@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TechDoseDSA
 {
@@ -36,8 +37,12 @@ namespace TechDoseDSA
 
         static void Main(string[] args)
         {
-            LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
-            obj.LargestRectangleArea(new int[] { 2, 1, 2 });
+            var x = PickK(input1, 3);
+
+            Console.WriteLine(x);
+            
+            //LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
+            //obj.LargestRectangleArea(new int[] { 2, 1, 2 });
 
             //AlienDictionary953 obj = new AlienDictionary953();
             //obj.IsAlienSorted(new string[] { "hello", "leetcode" }, "hlabcdefgijkmnopqrstuvwxyz");
@@ -82,6 +87,48 @@ namespace TechDoseDSA
             Console.WriteLine("Bubble Sort Test");
             Utils.Print(input1);
             Utils.Print(BubbleSort.Sort(input1));
+        }
+
+
+        private static List<HashSet<int>> PickK(int[] input, int k)
+        {
+            var toReturn = new List<HashSet<int>>();
+            for (int i = 0; i < input.Length; i++)
+            {
+                var res = PickKRec(input, k, i, new HashSet<int>());
+                foreach (var item in res)
+                {
+                    toReturn.Add(item);
+                }
+            }
+
+            return toReturn;
+           
+        }
+
+        private static List<HashSet<int>> PickKRec(int[] input, int k, int index, HashSet<int> results)
+        {
+            var toReturn = new List<HashSet<int>>();
+
+            if (results.Count == k)
+            {
+                toReturn.Add(results);
+                results = new HashSet<int>();
+            }
+            
+
+            if(index < input.Length)
+            {
+                results.Add(input[index]);
+                var res = PickKRec(input, k, index + 1 , results);
+                foreach (var item in res)
+                {
+                    toReturn.Add(item);
+                }
+                
+            }
+
+            return toReturn;
         }
     }
 }
