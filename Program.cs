@@ -40,12 +40,30 @@ namespace TechDoseDSA
 
         static void Main(string[] args)
         {
-            
-            var toReturn = PickK(input1, 5);
-           
 
-            Console.WriteLine(toReturn.Count);
+            //var toReturn = PickK(input1, 3);
+            //foreach (var item in toReturn)
+            //{
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.Write($"{item1},");
+            //    }
+
+            //    Console.WriteLine($"");
+
+            //}
+
+            //LetterCombinationsofaPhoneNumber17 obj = new LetterCombinationsofaPhoneNumber17();
+            //var res = obj.LetterCombinations("23");
+
+            int[] input = { 5, 4, 6, int.MinValue, int.MinValue, 3, 7 };
+            ValidateBinarySearchTree ts = new ValidateBinarySearchTree();
+            // var t = TreeNode.Create(input);
             
+            var t1 = TreeNode.Create(input, null, 0);
+            ts.IsValidBST(t1);
+
+
             //LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
             //obj.LargestRectangleArea(new int[] { 2, 1, 2 });
 

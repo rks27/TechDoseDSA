@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TechDoseDSA
 {
-    public class LargestRectangleInHistogram84
+    public class LargestRectangleInHistogram84bruteforce
     {
         public int LargestRectangleArea(int[] heights)
         {
