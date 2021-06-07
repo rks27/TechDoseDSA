@@ -57,7 +57,7 @@ namespace TechDoseDSA
             //var res = obj.LetterCombinations("23");
 
             int[] input = { 5, 4, 6, int.MinValue, int.MinValue, 3, 7 };
-            ValidateBinarySearchTree ts = new ValidateBinarySearchTree();
+            ValidateBinarySearchTreeV2 ts = new ValidateBinarySearchTreeV2();
             // var t = TreeNode.Create(input);
             
             var t1 = TreeNode.Create(input, null, 0);
