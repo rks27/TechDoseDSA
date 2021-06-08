@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
+using TechDoseDSA.Graph;
+using TechDoseDSA.LC;
 
 namespace TechDoseDSA
 {
@@ -56,13 +59,24 @@ namespace TechDoseDSA
             //LetterCombinationsofaPhoneNumber17 obj = new LetterCombinationsofaPhoneNumber17();
             //var res = obj.LetterCombinations("23");
 
-            int[] input = { 5, 4, 6, int.MinValue, int.MinValue, 3, 7 };
-            ValidateBinarySearchTreeV2 ts = new ValidateBinarySearchTreeV2();
-            // var t = TreeNode.Create(input);
-            
-            var t1 = TreeNode.Create(input, null, 0);
-            ts.IsValidBST(t1);
+            //int[] input = { 5, 4, 6, int.MinValue, int.MinValue, 3, 7 };
+            //ValidateBinarySearchTreeV2 ts = new ValidateBinarySearchTreeV2();
+            //// var t = TreeNode.Create(input);
 
+
+            //int[] input = { 1, 3, int.MinValue, int.MinValue, 2};
+            //var t = TreeNode.Create(input, null, 0);
+            ////ts.IsValidBST(t1);
+
+            //RecoverBinarySearchTree t1 = new RecoverBinarySearchTree();
+            //t1.RecoverTree(t);
+
+            
+            var x = TechDoseDSA.Graph.Node.Create("[[2,4],[1,3],[2,4],[1,3]]");
+            Console.WriteLine(x);
+
+            CloneGraph133 obj = new CloneGraph133();
+            var y = obj.CloneGraph(x);
 
             //LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
             //obj.LargestRectangleArea(new int[] { 2, 1, 2 });
