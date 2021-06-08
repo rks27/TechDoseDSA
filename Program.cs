@@ -71,13 +71,24 @@ namespace TechDoseDSA
             //RecoverBinarySearchTree t1 = new RecoverBinarySearchTree();
             //t1.RecoverTree(t);
 
-            
-            var x = TechDoseDSA.Graph.Node.Create("[[2,4],[1,3],[2,4],[1,3]]");
-            Console.WriteLine(x);
 
-            CloneGraph133 obj = new CloneGraph133();
-            var y = obj.CloneGraph(x);
+            //var x = TechDoseDSA.Graph.Node.Create("[[2,4],[1,3],[2,4],[1,3]]");
+            //Console.WriteLine(x);
 
+            //CloneGraph133 obj = new CloneGraph133();
+            //var y = obj.CloneGraph(x);
+
+            CourseSchedule207 obj = new CourseSchedule207();
+            int[][] pre = new int[4][];
+            pre[0] = new int[] { 1, 4 };
+            pre[1] = new int[] { 2, 4 };
+            pre[2] = new int[] { 3, 1 };
+            pre[3] = new int[] { 3, 2 };
+
+            // [[1,4],[2,4],[3,1],[3,2]]
+            // var x = CourseSchedule207.CreateALFromEL(5, pre);
+
+            obj.CanFinish(5, pre);
             //LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
             //obj.LargestRectangleArea(new int[] { 2, 1, 2 });
 
