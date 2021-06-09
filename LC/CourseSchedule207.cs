@@ -17,7 +17,7 @@ namespace TechDoseDSA.Graph
 
             for (int i = 0; i < prerequisites.Length; i++)
             {
-                al[prerequisites[i][0]].Add(prerequisites[i][1]);
+                al[prerequisites[i][1]].Add(prerequisites[i][0]);
             }
 
             return al;

@@ -78,17 +78,39 @@ namespace TechDoseDSA
             //CloneGraph133 obj = new CloneGraph133();
             //var y = obj.CloneGraph(x);
 
-            CourseSchedule207 obj = new CourseSchedule207();
-            int[][] pre = new int[4][];
-            pre[0] = new int[] { 1, 4 };
-            pre[1] = new int[] { 2, 4 };
-            pre[2] = new int[] { 3, 1 };
-            pre[3] = new int[] { 3, 2 };
+            //CourseSchedule210 obj = new CourseSchedule210();
+            //int[][] pre = new int[4][];
+            //pre[0] = new int[] {};
+            //pre[1] = new int[] { 2, 4 };
+            //pre[2] = new int[] { 3, 1 };
+            //pre[3] = new int[] { 3, 2 };
 
-            // [[1,4],[2,4],[3,1],[3,2]]
-            // var x = CourseSchedule207.CreateALFromEL(5, pre);
 
-            obj.CanFinish(5, pre);
+            //int[][] pre = new int[7][];
+            //pre[0] = new int[] { 2, 1};
+            //pre[1] = new int[] { 3, 0};
+            //pre[2] = new int[] { 3, 2 };
+            //pre[3] = new int[] { 4, 0 };
+            //pre[4] = new int[] { 4, 1 };
+            //pre[5] = new int[] { 5, 0 };
+            //pre[6] = new int[] { 5, 3 };
+
+            int[][] el = new int[1][];
+            el[0] = new int[] { 1, 0};
+
+
+
+
+            //// [[1,4],[2,4],[3,1],[3,2]]
+            //// var x = CourseSchedule207.CreateALFromEL(5, pre);
+
+            //obj.FindOrder(2, el);
+
+
+            AlienDictionary269 obj = new AlienDictionary269();
+            obj.Run();
+
+
             //LargestRectangleInHistogram84V2 obj = new LargestRectangleInHistogram84V2();
             //obj.LargestRectangleArea(new int[] { 2, 1, 2 });
 
